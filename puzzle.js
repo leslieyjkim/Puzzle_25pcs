@@ -17,4 +17,16 @@ window.onload = function() {
             document.getElementById("board").append(tile);
         }
     }
+
+    //pieces
+    let pieces = [];
+    for (let i=1; i <= rows*columns; i++) {   //rows*columns = 5*5 = 25
+        pieces.push(i.toString()); //put "1" to "25" into the array(puzzle images names)        
+    }
+
+    for (let i=0; i < pieces.length; i++) {
+        let tile = document.createElement("img");
+        tile.src = "./images/" + pieces[i] + ".jpg";
+        document.getElementById("pieces").append(tile);
+    }
 }
