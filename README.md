@@ -1,7 +1,8 @@
 # DEMO
-https://leslieyjkim.github.io/Slide_Puzzle_3x3/
+https://leslieyjkim.github.io/Puzzle_25pcs/
 
-![Screenshot](https://github.com/leslieyjkim/Slide_Puzzle_3x3/blob/main/Main.png?raw=true)
+
+![Screenshot](https://github.com/leslieyjkim/Puzzle_25pcs/blob/main/main.png?raw=true)
 
 # Avengers Poster Drag-and-Drop Puzzle
 
