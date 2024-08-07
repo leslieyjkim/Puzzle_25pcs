@@ -24,6 +24,17 @@ window.onload = function() {
         pieces.push(i.toString()); //put "1" to "25" into the array(puzzle images names)        
     }
 
+    //Let's shuffle images
+    pieces.reverse();
+    for (let i=0; i < pieces.length; i++) {
+        let j = Math.floor(Math.random()*pieces.length); //get random integer
+        
+        //swap images
+        let tmp = pieces[i];
+        pieces[i] = pieces [j];
+        pieces[j] = tmp;
+    }
+
     for (let i=0; i < pieces.length; i++) {
         let tile = document.createElement("img");
         tile.src = "./images/" + pieces[i] + ".jpg";
