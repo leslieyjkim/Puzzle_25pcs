@@ -86,6 +86,13 @@ function dragDrop() {
 }
 
 function dragEnd() {
+    //issue resolved: Blocking take a white blank images to swap with other images.
+    //blank image is not allowed to swap with other images. (no counting/increasing #of turns)
+    if (currTile.src.includes("blank")) {
+        return;
+    }
+
+
     let currImg = currTile.src;
     let otherImg = otherTile.src;
     currTile.src = otherImg;
