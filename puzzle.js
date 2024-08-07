@@ -14,6 +14,14 @@ window.onload = function() {
             let tile = document.createElement("img");
             tile.src = "./images/blank.jpg";
 
+            //DRAG & DROP Functionality
+            tile.addEventListener("dragstart", dragStart); //click on image to drag
+            tile.addEventListener("dragover", dragOver); //drag an image, move
+            tile.addEventListener("dragenter", dragEnter); //dragging an image into another one
+            tile.addEventListener("dragleave", dragLeave); //dragging an image away from another one
+            tile.addEventListener("drop", dragDrop);  //drop an image onto another one
+            tile.addEventListener("dragend", dragEnd); //after you completed dragDrop (swapped each other)
+
             document.getElementById("board").append(tile);
         }
     }
@@ -38,6 +46,51 @@ window.onload = function() {
     for (let i=0; i < pieces.length; i++) {
         let tile = document.createElement("img");
         tile.src = "./images/" + pieces[i] + ".jpg";
+
+        //DRAG & DROP Functionality
+        tile.addEventListener("dragstart", dragStart); //click on image to drag
+        tile.addEventListener("dragover", dragOver); //drag an image, move
+        tile.addEventListener("dragenter", dragEnter); //dragging an image into another one
+        tile.addEventListener("dragleave", dragLeave); //dragging an image away from another one
+        tile.addEventListener("drop", dragDrop);  //drop an image onto another one
+        tile.addEventListener("dragend", dragEnd); //after you completed dragDrop (swapped each other)
+
+
+
+        
+
+
         document.getElementById("pieces").append(tile);
     }
+}
+
+//DRAG TILES
+function dragStart() {
+    currTile = this; //this refers to image that was clicked on for dragging.
+}
+
+function dragOver(e) {
+    e.preventDefault();
+}
+
+function dragEnter(e) {
+    e.preventDefault();
+}
+
+function dragLeave() {
+
+}
+
+function dragDrop() {
+    otherTile =  this; //this refers to image that is being dropped on
+}
+
+function dragEnd() {
+    let currImg = currTile.src;
+    let otherImg = otherTile.src;
+    currTile.src = otherImg;
+    otherTile.src = currImg;
+
+    turns += 1;
+    document.getElementById("turns").innerText = turns;
 }
